@@ -2,7 +2,7 @@ import { useState } from "react";
 import Card from "../../Components/Cards/Card";
 import PageHeader from "../../Components/Shared/PageHeader/PageHeader";
 import SectionTitle from "../../Components/Shared/SectionTitle/SectionTitle";
-import useAllbooks from "../../Hooks/useAllbooks";
+import useAllbooks from "../../Hooks/useAllProducts";
 import headerVideo from "../../assets/videos/newspaper.mp4"
 import { ThreeDots } from "react-loader-spinner";
 const Newspapers = () => {
@@ -52,7 +52,7 @@ const Newspapers = () => {
 
 
                 </div>
-                { filteredBooks.notFound ?
+                {filteredBooks.notFound ?
                     <div className="flex items-center justify-center gap-2">
                         <p className="">No Data found named  <span className="font-bold"> {searchText}</span></p>
                         <ThreeDots
@@ -69,12 +69,12 @@ const Newspapers = () => {
 
                     :
                     <div className="p-5 bg-[#4ac4f826] grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 w-full">
-                    {filteredBooks.length > 0 ?
-                        filteredBooks.map(newspaper => <Card key={newspaper._id} book={newspaper} />)
-                        : newspapers.map(newspaper => <Card key={newspaper._id} book={newspaper} />)
+                        {filteredBooks.length > 0 ?
+                            filteredBooks.map(newspaper => <Card key={newspaper._id} book={newspaper} />)
+                            : newspapers.map(newspaper => <Card key={newspaper._id} book={newspaper} />)
 
-                    }
-                </div>
+                        }
+                    </div>
                 }
             </div>
         </div>

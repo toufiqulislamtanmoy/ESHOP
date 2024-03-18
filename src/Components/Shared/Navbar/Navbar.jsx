@@ -1,5 +1,4 @@
 import { Link, useLocation } from "react-router-dom";
-import logo from "../../../assets/Logo/Logo.png"
 import { useContext } from "react";
 import { AuthContext } from "../../../Pages/Provider/AuthProviders";
 import useUserRole from "../../../Hooks/useUserRole";
@@ -9,7 +8,7 @@ const Navbar = () => {
     const location = useLocation();
     const { cartItem } = useMyCartitem();
     const { user, logout } = useContext(AuthContext);
-    const [role,refetch] = useUserRole();
+    const [role, refetch] = useUserRole();
 
 
     const totalPrice = cartItem.reduce((sum, obj) => sum + parseInt(obj.price), 0);
@@ -20,7 +19,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar bg-[#c6dcf9] rounded-md bg-clip-padding backdrop-filter  bg-opacity-70 px-10">
+        <div className="navbar bg-[#E7E9EC] rounded-md shadow-xl px-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -29,28 +28,28 @@ const Navbar = () => {
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link className={`hover:text-info hover:transition-colors hover:duration-500 ${location.pathname === '/' ? 'text-info' : ''}`} to="/">Home</Link></li>
 
-                        <li><Link className={`hover:text-info hover:transition-colors hover:duration-500 ${location.pathname === '/books' ? 'text-info' : ''}`} to="/books">Books</Link></li>
+                        <li><Link className={`hover:text-info hover:transition-colors hover:duration-500 ${location.pathname === '/shop' ? 'text-info' : ''}`} to="/books">Shop</Link></li>
 
-                        <li><Link className={`hover:text-info hover:transition-colors hover:duration-500 ${location.pathname === '/magazines' ? 'text-info' : ''}`} to="/magazines">Magazines</Link></li>
+                        <li><Link className={`hover:text-info hover:transition-colors hover:duration-500 ${location.pathname === '/magazines' ? 'text-info' : ''}`} to="/about">About</Link></li>
 
-                        <li><Link className={`hover:text-info hover:transition-colors hover:duration-500 z-20 ${location.pathname === '/newspaper' ? 'text-info' : ''}`} to="/newspaper">Newspaper</Link></li>
+                        <li><Link className={`hover:text-info hover:transition-colors hover:duration-500 z-20 ${location.pathname === '/newspaper' ? 'text-info' : ''}`} to="/contact-us">Contact Us</Link></li>
 
                         {(role.role === 'admin' && user) && <li><Link to="/dashboard/requestforbook" className={`hover:text-info hover:transition-colors hover:duration-500 ${location.pathname === '/mystery' ? 'text-info' : ''}`}>Admin Panel</Link></li>}
                     </ul>
                 </div>
-                <Link to="/" className="w-16 normal-case text-xl hidden lg:block">
-                    <img className="w-full" src={logo} alt="" />
+                <Link to="/" className="text-primary font-semibold tracking-widest text-2xl uppercase sm:text-3xl">
+                    ESHOP
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     <li><Link className={`hover:text-info hover:transition-colors hover:duration-500 ${location.pathname === '/' ? 'text-info' : ''}`} to="/">Home</Link></li>
 
-                    <li><Link className={`hover:text-info hover:transition-colors hover:duration-500 ${location.pathname === '/books' ? 'text-info' : ''}`} to="/books">Books</Link></li>
+                    <li><Link className={`hover:text-info hover:transition-colors hover:duration-500 ${location.pathname === '/shop' ? 'text-info' : ''}`} to="/shop">Shop</Link></li>
 
-                    <li><Link className={`hover:text-info hover:transition-colors hover:duration-500 ${location.pathname === '/magazines' ? 'text-info' : ''}`} to="/magazines">Magazines</Link></li>
+                    <li><Link className={`hover:text-info hover:transition-colors hover:duration-500 ${location.pathname === '/about' ? 'text-info' : ''}`} to="/about">About</Link></li>
 
-                    <li><Link className={`hover:text-info hover:transition-colors hover:duration-500 z-20 ${location.pathname === '/newspaper' ? 'text-info' : ''}`} to="/newspaper">Newspaper</Link></li>
+                    <li><Link className={`hover:text-info hover:transition-colors hover:duration-500 z-20 ${location.pathname === '/contact-us' ? 'text-info' : ''}`} to="/contact-us">Contact Us</Link></li>
 
                     {(role.role === 'admin' && user) && <li><Link to="/dashboard/requestforbook" className={`hover:text-info hover:transition-colors hover:duration-500 ${location.pathname === '/mystery' ? 'text-info' : ''}`}>Admin Panel</Link></li>}
                 </ul>
@@ -95,7 +94,7 @@ const Navbar = () => {
                                             <span className="badge">New</span>
                                         </Link>
                                     </li>
-                                   
+
                                     <li><button onClick={handelLogOut}>Logout</button></li>
                                 </ul>
                             </div>

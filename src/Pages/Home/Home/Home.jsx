@@ -1,17 +1,22 @@
 import Banner from "../Banner/Banner";
-import Contact from "../Contact/Contact";
-import Team from "../OurTeam/Team";
-import RecentlyAdded from "../RecentlyAdded/RecentlyAdded";
+import Category from "../Category/Category";
+import Category2 from "../Category/Category2";
 import Services from "../Services/Services";
+import MiddleBanner from "../MiddleBanner/MiddleBanner";
+import Partners from "../Partners/Partners";
+import Products from "../../Products/Products";
+
 
 const Home = () => {
     return (
-        <div className="overflow-x-hidden">
-            <Banner/>
-            <RecentlyAdded/>
-            <Services/>
-            <Team/>
-            <Contact/>
+        <div className="">
+            <Banner />
+            <Category />
+            <Category2 />
+            <Services />
+            <MiddleBanner />
+            <Products />
+            <Partners />
         </div>
     );
 };

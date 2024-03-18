@@ -3,7 +3,6 @@ import {
 } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
-import Comics from "../Pages/Comics/Comics";
 import Login from "../Pages/Authentication/Login";
 import Signup from "../Pages/Authentication/Signup";
 import PrivetRoute from "./PrivetRoute";
@@ -11,9 +10,7 @@ import Dashboard from "../Layout/Dashboard";
 import BrowBookRequestList from "../Pages/AdminPanel/BrowBookRequestList/BrowBookRequestList";
 import AddBooks from "../Pages/AdminPanel/AddBooks/AddBooks";
 import CollectBooks from "../Pages/AdminPanel/CollectBook/CollectBooks";
-import Books from "../Pages/Books/Books";
-import Magazins from "../Pages/Magazins/Magazins";
-import Newspapers from "../Pages/Newspapers/Newspapers";
+
 import BookDetails from "../Pages/BookDetails/BookDetails";
 import UserDashboard from "../Layout/UserDashboard";
 import MyCart from "../Pages/UserPanel/MyCart/MyCart";
@@ -24,49 +21,24 @@ import MyFile from "../Pages/UserPanel/MyFile/MyFile";
 import NotFound from "../Pages/NotFound/NotFound";
 import AllBookList from "../Pages/AdminPanel/UpdateBooks/AllBookList";
 import UpdateBooks from "../Pages/AdminPanel/UpdateBooks/UpdateBooks";
-import Education from "../Pages/Education/Education";
-import MistryAndThriller from "../Pages/MystryAndThriller/MistryAndThriller";
-import Novels from "../Pages/Novels/Novels";
+import Products from "../Pages/Products/Products";
 
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main />,
-        errorElement: <NotFound/>,
+        // errorElement: <NotFound />,
         children: [
             {
                 path: "/",
                 element: <Home />
             },
             {
-                path: "/comics",
-                element: <Comics />
+                path: "/shop",
+                element: <Products />
             },
-            {
-                path: "/education",
-                element: <Education />
-            },
-            {
-                path: "/novels",
-                element: <Novels />
-            },
-            {
-                path: "/mysteryThriller",
-                element: <MistryAndThriller/>
-            },
-            {
-                path: "/books",
-                element: <Books />
-            },
-            {
-                path: "/magazines",
-                element: <Magazins />
-            },
-            {
-                path: "/newspaper",
-                element: <Newspapers />
-            },
+
             {
                 path: "/bookdetails/:id",
                 element: <PrivetRoute> <BookDetails /></PrivetRoute>
@@ -84,7 +56,7 @@ const router = createBrowserRouter([
     {
         path: "/dashboard",
         element: <PrivetRoute><Dashboard /></PrivetRoute>,
-        errorElement: <NotFound/>,
+        errorElement: <NotFound />,
         children: [
             {
                 path: "requestforbook",
@@ -113,7 +85,7 @@ const router = createBrowserRouter([
     {
         path: "/userdashboard",
         element: <PrivetRoute><UserDashboard /></PrivetRoute>,
-        errorElement: <NotFound/>,
+        errorElement: <NotFound />,
         children: [
             {
                 path: "userCart",

@@ -1,37 +1,121 @@
-import { Link } from "react-router-dom";
-import Lottie from "lottie-react";
-import banner from "../../../assets/Banner/animations/banner.json"
+
+import Image1 from "../../../assets/hero/headphone.png";
+import Image2 from "../../../assets/category/vr.png";
+import Image3 from "../../../assets/category/macbook.png";
+import Button from "../../../Components/Shared/Button";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick/lib/slider";
+
 
 const Banner = () => {
+    const HeroData = [
+        {
+            id: 1,
+            img: Image1,
+            subtitle: "Beats Solo",
+            title: "Wireless",
+            title2: "Headphone",
+        },
+        {
+            id: 2,
+            img: Image2,
+            subtitle: "Beats Solo",
+            title: "Wireless",
+            title2: "Virtual",
+        },
+        {
+            id: 1,
+            img: Image3,
+            subtitle: "Beats Solo",
+            title: "Branded",
+            title2: "Laptops",
+        },
+    ];
+    const settings = {
+        dots: false,
+        arrows: false,
+        infinite: true,
+        speed: 800,
+        slidesToScroll: 1,
+        // autoplay: true,
+        autoplaySpeed: 4000,
+        cssEase: "ease-in-out",
+        pauseOnHover: false,
+        pauseOnFocus: true,
+    };
     return (
-        <div className='bg-[#F9F9FF] px-3 lg:px-16 z-[-10]'>
-            <div className='lg:flex flex-row-reverse items-center justify-center'>
-                <div className='w-full lg:w-1/2'>
-                    <Lottie animationData={banner} loop={true} />
+        <div className="max-w-7xl mx-auto">
+            <div
+                className="overflow-hidden  hero-bg-color flex justify-center items-center
+    "
+            >
+                <div className="container pb-8 sm:pb-0">
+                    {/* Hero section */}
+                    <Slider {...settings}>
+                        {HeroData.map((data) => (
+                            <div key={data.id}>
+                                <div className="grid grid-cols-1 sm:grid-cols-2">
+                                    {/* text content section */}
+                                    <div className="flex flex-col justify-center gap-4 sm:pl-3 pt-12 sm:pt-0 text-center sm:text-left order-2 sm:order-1 relative z-10 ">
+                                        <h1
+                                            data-aos="zoom-out"
+                                            data-aos-duration="500"
+                                            data-aos-once="true"
+                                            className="text-2xl sm:text-6xl lg:text-2xl font-bold"
+                                        >
+                                            {data.subtitle}
+                                        </h1>
+                                        <h1
+                                            data-aos="zoom-out"
+                                            data-aos-duration="500"
+                                            data-aos-once="true"
+                                            className="text-5xl sm:text-6xl lg:text-7xl font-bold"
+                                        >
+                                            {data.title}
+                                        </h1>
+                                        <h1
+                                            data-aos="zoom-out"
+                                            data-aos-duration="500"
+                                            data-aos-once="true"
+                                            className="text-5xl uppercase text-white dark:text-white/5 sm:text-[80px] md:text-[100px] xl:text-[150px] font-bold"
+                                        >
+                                            {data.title2}
+                                        </h1>
+                                        <div
+                                            data-aos="fade-up"
+                                            data-aos-offset="0"
+                                            data-aos-duration="500"
+                                            data-aos-delay="300"
+                                        >
+                                            <Button
+                                                text="Shop By Category"
+                                                bgColor="bg-primary"
+                                                textColor="text-white"
+
+                                            />
+                                        </div>
+                                    </div>
+                                    {/* Img section */}
+                                    <div className="order-1 sm:order-2">
+                                        <div
+                                            data-aos="zoom-in"
+                                            data-aos-once="true"
+                                            className="relative z-10"
+                                        >
+                                            <img
+                                                src={data.img}
+                                                alt=""
+                                                className="w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] sm:scale-105 lg:scale-120 object-contain mx-auto drop-shadow-[-8px_4px_6px_rgba(0,0,0,.4)] relative z-40"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </Slider>
                 </div>
-                <div className='w-full lg:w-1/2'>
-                    <h2 className='text-5xl font-bold tracking-wider font-Kaushan'>Dive into Diverse <span className="text-orange-300">Stories</span> </h2>
-                    <p className='my-5 font-mono text-justify'>Our Mission is to Cultivate a Space Where Literature Enthusiasts Unite to Explore a Multitude of Diverse Stories. From Timeless Classics to Modern Marvels, We Aim to Ignite Curiosity, Inspire Learning, and Connect People Through the Power of Words.</p>
-
-
-                    <div className='text-center lg:text-left py-5 lg:py-0'>
-
-                        <Link
-                            to='/'
-                            className='bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition-all  duration-300 delay-100'
-
-                        >
-                            Get Started
-                        </Link>
-
-                    </div>
-
-
-                </div>
-
             </div>
-
-
         </div>
     );
 };

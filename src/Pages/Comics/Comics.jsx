@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Card from "../../Components/Cards/Card";
 import PageHeader from "../../Components/Shared/PageHeader/PageHeader";
 import SectionTitle from "../../Components/Shared/SectionTitle/SectionTitle";
-import useAllbooks from "../../Hooks/useAllbooks";
+import useAllbooks from "../../Hooks/useAllProducts";
 import headerVideo from '../../assets/videos/comics.mp4'
 import { useState } from "react";
 import { ThreeDots } from "react-loader-spinner";

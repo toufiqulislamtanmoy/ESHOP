@@ -1,45 +1,122 @@
-import { Link } from "react-router-dom";
-import logo from "../../../assets/Logo/Logo.png"
+
+import { FaMobileAlt } from "react-icons/fa";
 import {
-    FaFacebook,
-    FaTwitter,
-    FaInstagramSquare
-} from 'react-icons/fa';
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaLocationArrow,
+} from "react-icons/fa6";
+
+const FooterLinks = [
+  {
+    title: "Home",
+    link: "/#",
+  },
+  {
+    title: "About",
+    link: "/#about",
+  },
+  {
+    title: "Contact",
+    link: "/#contact",
+  },
+  {
+    title: "Blog",
+    link: "/#blog",
+  },
+];
 
 const Footer = () => {
-    return (
-        <footer className=" footer p-5 lg:p-10 bg-[#EFF6FF] text-base-content">
-            <div>
-                <img className="w-24" src={logo} alt="" />
+  return (
+    <div className="dark:bg-gray-950">
+      <div className="container">
+        <div className="grid md:grid-cols-3 pb-20 pt-5">
+          {/* company details */}
+          <div className="py-8 px-4">
+            <a
+              href="#"
+              className="text-primary font-semibold tracking-widest text-2xl uppercase sm:text-3xl
+"
+            >
+              Eshop
+            </a>
+            <p className="text-gray-600 dark:text-white/70  lg:pr-24 pt-3">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores
+              alias cum
+            </p>
+
+          </div>
+
+          {/* Footer links */}
+          <div className="col-span-2 grid grid-cols-2 sm:grid-cols-3 md:pl-10">
+            <div className="py-8 px-4">
+              <h1 className="text-xl font-bold sm:text-left mb-3">
+                Important Links
+              </h1>
+              <ul className="space-y-3">
+                {FooterLinks.map((data, index) => (
+                  <li key={index}>
+                    <a
+                      href={data.link}
+                      className="text-gray-600 dark:text-gray-400 hover:dark:text-white hover:text-black duration-300"
+                    >
+                      {data.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div>
-                <span className="footer-title">Company</span>
-                <a className="link link-hover">About us</a>
-                <a className="link link-hover">Contact</a>
-                <a className="link link-hover">Press kit</a>
+            {/* second col links */}
+            <div className="py-8 px-4">
+              <h1 className="text-xl font-bold sm:text-left mb-3">
+                Quick Links
+              </h1>
+              <ul className="space-y-3">
+                {FooterLinks.map((data, index) => (
+                  <li key={index}>
+                    <a
+                      href={data.link}
+                      className="text-gray-600 dark:text-gray-400 hover:dark:text-white hover:text-black duration-300"
+                    >
+                      {data.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div>
-                <span className="footer-title">Social Contact</span>
-                <div className="grid grid-flow-col gap-4 text-2xl">
-                    <Link className="hover:text-info" to=""><FaFacebook /></Link>
-                    <Link className="hover:text-info" to=""><FaTwitter /></Link>
-                    <Link className="hover:text-info" to=""><FaInstagramSquare /></Link>
+
+            {/* Company Address */}
+            <div className="py-8 px-4 col-span-2 sm:col-auto">
+              <h1 className="text-xl font-bold sm:text-left mb-3">Address</h1>
+              <div>
+                <div className="flex items-center gap-3">
+                  <FaLocationArrow />
+                  <p>Rajshahi , Bangladesh</p>
                 </div>
-            </div>
-            <div>
-                <span className="footer-title">Newsletter</span>
-                <div className="form-control w-80">
-                    <label className="label">
-                        <span className="label-text">Enter your email address</span>
-                    </label>
-                    <div className="relative">
-                        <input type="text" placeholder="username@site.com" className="input input-bordered  pr-16" />
-                        <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">Subscribe</button>
-                    </div>
+                <div className="flex items-center gap-3 mt-6">
+                  <FaMobileAlt />
+                  <p>+880 1234567890</p>
                 </div>
+
+                {/* social links */}
+                <div className="flex items-center gap-3 mt-6">
+                  <a href="#">
+                    <FaInstagram className="text-3xl hover:text-primary duration-300" />
+                  </a>
+                  <a href="#">
+                    <FaFacebook className="text-3xl hover:text-primary duration-200" />
+                  </a>
+                  <a href="#">
+                    <FaLinkedin className="text-3xl hover:text-primary duration-200" />
+                  </a>
+                </div>
+              </div>
             </div>
-        </footer>
-    );
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Footer;

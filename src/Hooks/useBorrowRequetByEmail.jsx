@@ -5,12 +5,12 @@ import { AuthContext } from "../Pages/Provider/AuthProviders";
 
 const useBorrowRequetByEmail = () => {
     const [axiosSecure] = useAxiosSecure();
-    const {user} = useContext(AuthContext);
-    const { data: borrowBookForUser = [], isLoading: loading, refetch:borrowBookUserRequstRefetch } = useQuery(
-        
-        ['borrowBookForUser'], 
+    const { user } = useContext(AuthContext);
+    const { data: borrowBookForUser = [], isLoading: loading, refetch: borrowBookUserRequstRefetch } = useQuery(
+
+        ['borrowBookForUser'],
         async () => {
-            // const res = await fetch(`https://e-shopy-server.vercel.app/singlebook/${id}`);
+            // const res = await fetch(`http://localhost:5000/singlebook/${id}`);
             // return res.json();
             const response = await axiosSecure.get(`/borrowRequest/${user.email}`)
             return response.data;

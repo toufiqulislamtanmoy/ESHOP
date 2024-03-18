@@ -4,10 +4,10 @@ import Footer from "../Components/Shared/Footer/Footer";
 
 const Main = () => {
     return (
-        <div>
-            <Navbar/>
-            <Outlet/>
-            <Footer/>
+        <div className=" max-w-7xl mx-auto">
+            <Navbar />
+            <Outlet />
+            <Footer />
         </div>
     );
 };

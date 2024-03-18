@@ -1,6 +1,6 @@
 import SectionTitle from "../../Components/Shared/SectionTitle/SectionTitle";
 import Card from "../../Components/Cards/Card";
-import useAllbooks from "../../Hooks/useAllbooks";
+import useAllbooks from "../../Hooks/useAllProducts";
 import PageHeader from "../../Components/Shared/PageHeader/PageHeader";
 import headerVideo from "../../assets/videos/allBooks.mp4"
 import { Link } from "react-router-dom";
