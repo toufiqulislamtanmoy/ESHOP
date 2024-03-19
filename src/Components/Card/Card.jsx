@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
+import useAddToCart from "../../Helper/useAddToCart";
 
 
 const Card = ({ productData }) => {
-    console.log(productData)
+    const [handelAddToCart] = useAddToCart();
     return (
         <div className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
 
@@ -12,9 +14,9 @@ const Card = ({ productData }) => {
             />
             <div className="px-4 py-3 w-72">
                 <span className="text-gray-400 mr-3 uppercase text-xs">{productData?.product_brands}</span>
-                <p className="text-lg font-bold text-black truncate block capitalize">
+                <Link to={`/product-details/${productData?._id}`} className="text-lg font-bold hover:underline text-black truncate block capitalize">
                     {productData?.product_name}
-                </p>
+                </Link>
                 <div className="flex items-center">
                     <p className="text-lg font-semibold text-black cursor-auto my-3">
                         {productData?.product_price}
@@ -22,7 +24,8 @@ const Card = ({ productData }) => {
                     <del>
                         <p className="text-sm text-gray-600 cursor-auto ml-2">$199</p>
                     </del>
-                    <button className="ml-auto">
+                    <button className="ml-auto" onClick={() => handelAddToCart(productData)} >
+
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width={20}

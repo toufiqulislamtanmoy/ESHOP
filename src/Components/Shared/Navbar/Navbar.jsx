@@ -11,7 +11,7 @@ const Navbar = () => {
     const [role, refetch] = useUserRole();
 
 
-    const totalPrice = cartItem.reduce((sum, obj) => sum + parseInt(obj.price), 0);
+    const totalPrice = cartItem.reduce((sum, obj) => sum + parseInt(obj.product_price), 0);
     const handelLogOut = async () => {
         logout(); // Wait for the logout operation to complete
         await refetch();

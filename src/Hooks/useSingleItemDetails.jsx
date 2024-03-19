@@ -9,7 +9,7 @@ const useSingleItemDetails = (id) => {
         async () => {
             // const res = await fetch(`http://localhost:5000/singlebook/${id}`);
             // return res.json();
-            const response = await axiosSecure(`/singlebook/${id}`)
+            const response = await axiosSecure(`/product-details/${id}`)
             return response.data;
         }
     );

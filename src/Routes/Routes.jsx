@@ -11,7 +11,7 @@ import BrowBookRequestList from "../Pages/AdminPanel/BrowBookRequestList/BrowBoo
 import AddBooks from "../Pages/AdminPanel/AddBooks/AddBooks";
 import CollectBooks from "../Pages/AdminPanel/CollectBook/CollectBooks";
 
-import BookDetails from "../Pages/BookDetails/BookDetails";
+
 import UserDashboard from "../Layout/UserDashboard";
 import MyCart from "../Pages/UserPanel/MyCart/MyCart";
 import MyBorrowBooks from "../Pages/UserPanel/MyBorrowBook/MyBorrowBooks";
@@ -22,6 +22,7 @@ import NotFound from "../Pages/NotFound/NotFound";
 import AllBookList from "../Pages/AdminPanel/UpdateBooks/AllBookList";
 import UpdateBooks from "../Pages/AdminPanel/UpdateBooks/UpdateBooks";
 import Products from "../Pages/Products/Products";
+import ProductDetails from "../Pages/BookDetails/ProductDetails";
 
 
 const router = createBrowserRouter([
@@ -40,8 +41,8 @@ const router = createBrowserRouter([
             },
 
             {
-                path: "/bookdetails/:id",
-                element: <PrivetRoute> <BookDetails /></PrivetRoute>
+                path: "/product-details/:id",
+                element: <PrivetRoute> <ProductDetails /></PrivetRoute>
             },
             {
                 path: "/signin",
