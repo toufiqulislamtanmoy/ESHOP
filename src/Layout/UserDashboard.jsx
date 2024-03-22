@@ -22,7 +22,7 @@ const UserDashboard = () => {
                 <div className="drawer-side h-full">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
 
-                    <ul className="menu p-4 w-72 h-full sticky bg-[#c6dcf9] rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-70 border border-gray-100">
+                    <ul className="menu p-4 w-72 h-full fixed bg-[#c6dcf9] rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-70 border border-gray-100">
                         {/* Sidebar content here */}
                         <div className=" bg-white p-5 rounded-lg">
                             <div className="avatar flex flex-col gap-5 items-center justify-center">

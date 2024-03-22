@@ -1,14 +1,16 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import SectionTitle from "../../../Components/Shared/SectionTitle/SectionTitle";
 import useMyCartitem from "../../../Hooks/useMyCartitem";
-import { faCreditCard, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faCreditCard } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { BallTriangle } from "react-loader-spinner";
+import Heading from "../../../Components/Shared/Heading";
 
 const MyCart = () => {
     const { cartItem, cartRefetch } = useMyCartitem();
+    console.log(cartItem)
+
     const [axiosSecure] = useAxiosSecure();
     const handelDeleteCartItem = (id) => {
         Swal.fire({
@@ -36,74 +38,53 @@ const MyCart = () => {
         })
     }
     return (
-        <div className={`mb-10 ${cartItem.length < 8 ? 'h-[100vh]' : ''}`}>
-            <SectionTitle title={"Cart Items"} />
-            <div className="overflow-x-auto">
-                {cartItem.length > 0 ?
-                    <table className="table">
-                        {/* head */}
-                        <thead>
-                            <tr>
-                                <th>Book Details</th>
-                                <th>Price</th>
-                                <th>Action</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {/* row 1 */}
-                            {
-                                cartItem.map(singleItem =>
-                                    <tr key={singleItem._id}>
-                                        <td>
-                                            <div className="flex items-center space-x-3">
-                                                <div className="avatar">
-                                                    <div className="mask w-12 h-12">
-                                                        <img src={singleItem.bookCoverImage} alt="Avatar Tailwind CSS Component" />
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div className="font-bold">{singleItem.bookName}</div>
-                                                    <div className="text-sm opacity-50">{singleItem.category}</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <span className="font-Russo"> {singleItem.price}</span>
-                                            <span className="font-Russo"> TK.</span>
-                                        </td>
-                                        <th>
-                                            <div className="lg:flex gap-4">
-                                                <Link to={`/userdashboard/checkout/${singleItem._id}`} className="btn btn-xs rounded-md bg-secondary hover:bg-info  hover:transition-colors hover:duration-1000 capitalize text-white"><FontAwesomeIcon icon={faCreditCard} /></Link>
-
-
-
-                                                <button onClick={() => handelDeleteCartItem(singleItem._id)} className="btn btn-xs rounded-md bg-warning hover:bg-primary  hover:transition-colors hover:duration-1000 capitalize text-white"><FontAwesomeIcon icon={faTrashCan} /></button>
-                                            </div>
-                                        </th>
-                                    </tr>
-
-                                )
-                            }
-
-                        </tbody>
-                    </table> :
-                    <div>
-                        <p className="text-center">No Item added into your cart</p>
-                        <p className="flex items-center justify-center">
-                            <BallTriangle
-                                height={100}
-                                width={100}
-                                radius={5}
-                                color="#4fa94d"
-                                ariaLabel="ball-triangle-loading"
-                                wrapperClass={{}}
-                                wrapperStyle=""
-                                visible={true}
-                            />
-                        </p>
-                    </div>
+        <div className="text-center">
+            <div className="bg-gray-250 shadow-md max-w-6xl bg-white  mx-auto p-8 my-20 space-y-6">
+                {/* top part  */}
+                <Heading title="My Cart Items" subtitle={"Explore Our Products"} />
+                <div className="flex justify-between items-center">
+                    <h4 className="text-xl font-medium text-slate-800 uppercase">order</h4>
+                    <p className="text-sm font-medium text-gray-400 uppercase">edit cart</p>
+                </div>
+                <hr />
+                {/*  Cart  map */}
+                {
+                    cartItem?.length > 0 ?
+                        cartItem.map((item) => (
+                            <div key={item?._id} className="flex justify-between items-center border-b pb-6">
+                                <div className="flex flex-wrap items-center gap-4">
+                                    <img className="w-[75px] h-[75px] rounded-lg bg-slate-500" src={item?.product_image} alt="card navigate ui" />
+                                    <div>
+                                        <h5 className="text-lg font-medium">{item?.product_name}</h5>
+                                        <p className="text-sm text-gray-400">Delivery {item?.product_brand}</p>
+                                    </div>
+                                </div>
+                                {/* item increase decrees  */}
+                                <div className="flex flex-wrap items-center gap-4 md:gap-10">
+                                    <h6 className="text-xl font-medium text-slate-800">{item?.product_price}</h6>
+                                    <button onClick={() => handelDeleteCartItem(item?._id)}>Delete</button>
+                                    <Link to={`/userdashboard/checkout/${item?._id}`} className="btn btn-xs rounded-md bg-secondary hover:bg-info  hover:transition-colors hover:duration-1000 capitalize text-white"><FontAwesomeIcon icon={faCreditCard} /></Link>
+                                </div>
+                            </div>
+                        ))
+                        :
+                        <div>
+                            <p className="text-center">No Item added into your cart</p>
+                            <p className="flex items-center justify-center">
+                                <BallTriangle
+                                    height={100}
+                                    width={100}
+                                    radius={5}
+                                    color="#4fa94d"
+                                    ariaLabel="ball-triangle-loading"
+                                    wrapperClass={{}}
+                                    wrapperStyle=""
+                                    visible={true}
+                                />
+                            </p>
+                        </div>
                 }
+
             </div>
         </div>
     );

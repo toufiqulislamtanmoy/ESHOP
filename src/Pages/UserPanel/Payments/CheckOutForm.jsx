@@ -18,19 +18,19 @@ const CheckOutForm = ({ checkOutDetail }) => {
     const [processing, setProcessing] = useState(false);
     const [clintSecret, setClintSecret] = useState('');
     console.log(checkOutDetail)
-    const { price, downloadURL, category, bookName, bookId, authorName, bookCoverImage, _id } = checkOutDetail;
+    const { product_price, product_description, product_brand, product_name, productId, product_image, _id } = checkOutDetail;
     const navigate = useNavigate();
 
 
 
     useEffect(() => {
-        console.log(price)
-        if (price > 0) {
-            axiosSecure.post('/create-payment-intent', { price }).then(res => {
+        console.log(product_price)
+        if (product_price > 0) {
+            axiosSecure.post('/create-payment-intent', { product_price }).then(res => {
                 setClintSecret(res.data.clientSecret);
             })
         }
-    }, [axiosSecure, price])
+    }, [axiosSecure, product_price])
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -82,22 +82,21 @@ const CheckOutForm = ({ checkOutDetail }) => {
 
         if (paymentIntent?.status === "succeeded") {
             const currentDate = new Date();
-            
+
             const paymentInfo = {
                 email: user?.email,
                 transactionId: paymentIntent.id,
-                price,
+                product_price,
                 date: currentDate.toLocaleDateString(),
                 time: currentDate.toLocaleTimeString(),
-                bookName,
-                authorName,
                 userPhoto: user?.photoURL,
-                bookCoverImage,
-                downloadURL,
-                bookCategory: category,
                 paymentStatus: 'Paid',
-                bookId,
-                cartId: _id
+                cartId: _id,
+                product_name,
+                product_image,
+                product_brand,
+                productId,
+                product_description
 
             }
             axiosSecure.post("/payments", paymentInfo).then(res => {

@@ -12,7 +12,6 @@ import CollectBooks from "../Pages/AdminPanel/CollectBook/CollectBooks";
 
 import UserDashboard from "../Layout/UserDashboard";
 import MyCart from "../Pages/UserPanel/MyCart/MyCart";
-import MyBorrowBooks from "../Pages/UserPanel/MyBorrowBook/MyBorrowBooks";
 import Payment from "../Pages/UserPanel/Payments/Payment";
 import PaymentHistory from "../Pages/UserPanel/PaymentHistory/PaymentHistory";
 import MyFile from "../Pages/UserPanel/MyFile/MyFile";
@@ -88,10 +87,7 @@ const router = createBrowserRouter([
                 path: "userCart",
                 element: <MyCart />
             },
-            {
-                path: "userBorrowBooks",
-                element: <MyBorrowBooks />
-            },
+
             {
                 path: "checkout/:id",
                 element: <Payment />
