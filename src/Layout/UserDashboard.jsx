@@ -3,7 +3,7 @@ import { FcMenu } from "react-icons/fc";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { AuthContext } from "../Pages/Provider/AuthProviders";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping, faClockRotateLeft, faFolder, faHandsPraying, faHouseChimney } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping, faClockRotateLeft, faHouseChimney } from "@fortawesome/free-solid-svg-icons";
 
 
 const UserDashboard = () => {

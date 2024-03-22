@@ -3,7 +3,7 @@ import { FcMenu } from "react-icons/fc";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { AuthContext } from "../Pages/Provider/AuthProviders";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFileCirclePlus, faFilePen, faHouseChimney, faListCheck } from "@fortawesome/free-solid-svg-icons";
+import { faFilePen, faHouseChimney, faListCheck } from "@fortawesome/free-solid-svg-icons";
 
 const Dashboard = () => {
     const location = useLocation();
