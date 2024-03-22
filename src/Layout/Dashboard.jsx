@@ -42,15 +42,10 @@ const Dashboard = () => {
                         <li>
                             <Link
                                 className={`hover:text-white hover:bg-gray-500 hover:transition-colors hover:duration-500 ${location.pathname === '/dashboard/add-product' ? 'bg-gray-400 bg-opacity-40' : ''}`}
-                                to="/dashboard/add-product"><FontAwesomeIcon icon={faListCheck} /> Request For Books
+                                to="/dashboard/add-product"><FontAwesomeIcon icon={faListCheck} /> Add Product
                             </Link>
                         </li>
-                        <li>
-                            <Link
-                                className={`hover:text-white hover:bg-gray-500 hover:transition-colors hover:duration-500 ${location.pathname === '/dashboard/update-product' ? 'bg-gray-400 bg-opacity-40' : ''}`}
-                                to="/dashboard/update-product"><FontAwesomeIcon icon={faFileCirclePlus} /> Add Books
-                            </Link>
-                        </li>
+
                         <li>
                             <Link
                                 className={`hover:text-white hover:bg-gray-500 hover:transition-colors hover:duration-500 ${location.pathname === '/dashboard/manage-product' ? 'bg-gray-400 bg-opacity-40' : ''}`}

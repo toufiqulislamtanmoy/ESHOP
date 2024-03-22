@@ -3,7 +3,7 @@ import { FcMenu } from "react-icons/fc";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { AuthContext } from "../Pages/Provider/AuthProviders";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping, faClockRotateLeft, faFolder, faHandsPraying,  faHouseChimney } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping, faClockRotateLeft, faFolder, faHandsPraying, faHouseChimney } from "@fortawesome/free-solid-svg-icons";
 
 
 const UserDashboard = () => {
@@ -36,7 +36,7 @@ const UserDashboard = () => {
                         <li>
                             <Link
                                 className={`hover:text-white hover:bg-gray-500 hover:transition-colors hover:duration-500 ${location.pathname === '/' ? 'bg-gray-400 bg-opacity-40' : ''}`}
-                                to="/"><FontAwesomeIcon icon={faHouseChimney} /> Home 
+                                to="/"><FontAwesomeIcon icon={faHouseChimney} /> Home
                             </Link>
                         </li>
 
@@ -49,12 +49,7 @@ const UserDashboard = () => {
 
 
 
-                        <li>
-                            <Link
-                                className={`hover:text-white hover:bg-gray-500 hover:transition-colors hover:duration-500 ${location.pathname === '/userdashboard/userBorrowBooks' ? 'bg-gray-400 bg-opacity-40' : ''}`}
-                                to="/userdashboard/userBorrowBooks"><FontAwesomeIcon icon={faHandsPraying} /> My Borrow Request
-                            </Link>
-                        </li>
+
 
                         <li>
                             <Link
@@ -63,13 +58,8 @@ const UserDashboard = () => {
                             </Link>
                         </li>
 
-                        <li>
-                            <Link
-                                className={`hover:text-white hover:bg-gray-500 hover:transition-colors hover:duration-500 ${location.pathname === '/userdashboard/myfile' ? 'bg-gray-400 bg-opacity-40' : ''}`}
-                                to="/userdashboard/myfile"><FontAwesomeIcon icon={faFolder} /> My Files
-                            </Link>
-                        </li>
-                        
+
+
 
                     </ul>
 

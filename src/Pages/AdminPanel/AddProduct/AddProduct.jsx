@@ -10,7 +10,6 @@ const AddProduct = () => {
     const [axiosSecure] = useAxiosSecure();
     const imagHostingUrl = `https://api.imgbb.com/1/upload?&key=${imageHostingToken}`
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const navigate = useNavigate();
     const [mainBanner, setMainBanner] = useState(false);
     const [cat1, setCat1] = useState(false);
     const [cat2, setCat2] = useState(false);
@@ -45,6 +44,17 @@ const AddProduct = () => {
                     cat2,
                     product_image: display_url
                 };
+
+                const { data: { insertedId } } = await axiosSecure.post('/add-product', inputData);
+                console.log(insertedId);
+                if (insertedId) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Product Added Successfully',
+                    })
+                    reset();
+                }
+
 
             }
 
