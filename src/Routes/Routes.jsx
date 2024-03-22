@@ -7,8 +7,6 @@ import Login from "../Pages/Authentication/Login";
 import Signup from "../Pages/Authentication/Signup";
 import PrivetRoute from "./PrivetRoute";
 import Dashboard from "../Layout/Dashboard";
-import BrowBookRequestList from "../Pages/AdminPanel/BrowBookRequestList/BrowBookRequestList";
-import AddBooks from "../Pages/AdminPanel/AddBooks/AddBooks";
 import CollectBooks from "../Pages/AdminPanel/CollectBook/CollectBooks";
 
 
@@ -23,6 +21,7 @@ import AllBookList from "../Pages/AdminPanel/UpdateBooks/AllBookList";
 import UpdateBooks from "../Pages/AdminPanel/UpdateBooks/UpdateBooks";
 import Products from "../Pages/Products/Products";
 import ProductDetails from "../Pages/BookDetails/ProductDetails";
+import AddProduct from "../Pages/AdminPanel/AddProduct/AddProduct";
 
 
 const router = createBrowserRouter([
@@ -60,25 +59,22 @@ const router = createBrowserRouter([
         errorElement: <NotFound />,
         children: [
             {
-                path: "requestforbook",
-                element: <BrowBookRequestList />
+                path: "add-product",
+                element: <AddProduct />
             },
             {
-                path: "addbook",
-                element: <AddBooks />
+                path: "update-product/:id",
+                element: <UpdateBooks />
             },
             {
                 path: "collectbook",
                 element: <CollectBooks />
             },
             {
-                path: "allbooks",
+                path: "manage-product",
                 element: <AllBookList />
             },
-            {
-                path: "updateBook/:id",
-                element: <UpdateBooks />
-            },
+
 
         ]
 

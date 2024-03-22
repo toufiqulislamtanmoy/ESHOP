@@ -14,14 +14,14 @@ const Dashboard = () => {
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content ">
 
-                    <label htmlFor="my-drawer-2" className="lg:hidden"><FcMenu className="text-5xl mb-12" /></label>
+                    <label htmlFor="my-drawer-2" className="lg:hidden"><FcMenu className="text-3xl mb-12" /></label>
 
                     <Outlet />
                 </div>
                 <div className="drawer-side h-full">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
 
-                    <ul className="menu p-4 w-72 h-full sticky bg-[#c6dcf9] rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-70 border border-gray-100">
+                    <ul className="menu p-4 w-72 h-full fixed bg-[#c6dcf9] rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-70 border border-gray-100">
                         {/* Sidebar content here */}
                         <div className=" bg-white p-5 rounded-lg">
                             <div className="avatar flex flex-col gap-5 items-center justify-center">
@@ -36,28 +36,28 @@ const Dashboard = () => {
                         <li>
                             <Link
                                 className={`hover:text-white hover:bg-gray-500 hover:transition-colors hover:duration-500 ${location.pathname === '/' ? 'bg-gray-400 bg-opacity-40' : ''}`}
-                                to="/"><FontAwesomeIcon icon={faHouseChimney} /> Home 
+                                to="/"><FontAwesomeIcon icon={faHouseChimney} /> Home
                             </Link>
                         </li>
                         <li>
                             <Link
-                                className={`hover:text-white hover:bg-gray-500 hover:transition-colors hover:duration-500 ${location.pathname === '/dashboard/requestforbook' ? 'bg-gray-400 bg-opacity-40' : ''}`}
-                                to="/dashboard/requestforbook"><FontAwesomeIcon icon={faListCheck} /> Request For Books
+                                className={`hover:text-white hover:bg-gray-500 hover:transition-colors hover:duration-500 ${location.pathname === '/dashboard/add-product' ? 'bg-gray-400 bg-opacity-40' : ''}`}
+                                to="/dashboard/add-product"><FontAwesomeIcon icon={faListCheck} /> Request For Books
                             </Link>
                         </li>
                         <li>
                             <Link
-                                className={`hover:text-white hover:bg-gray-500 hover:transition-colors hover:duration-500 ${location.pathname === '/dashboard/addbook' ? 'bg-gray-400 bg-opacity-40' : ''}`}
-                                to="/dashboard/addbook"><FontAwesomeIcon icon={faFileCirclePlus} /> Add Books
+                                className={`hover:text-white hover:bg-gray-500 hover:transition-colors hover:duration-500 ${location.pathname === '/dashboard/update-product' ? 'bg-gray-400 bg-opacity-40' : ''}`}
+                                to="/dashboard/update-product"><FontAwesomeIcon icon={faFileCirclePlus} /> Add Books
                             </Link>
                         </li>
                         <li>
                             <Link
-                                className={`hover:text-white hover:bg-gray-500 hover:transition-colors hover:duration-500 ${location.pathname === '/dashboard/allbooks' ? 'bg-gray-400 bg-opacity-40' : ''}`}
-                                to="/dashboard/allbooks"><FontAwesomeIcon icon={faFilePen} /> Update Books
+                                className={`hover:text-white hover:bg-gray-500 hover:transition-colors hover:duration-500 ${location.pathname === '/dashboard/manage-product' ? 'bg-gray-400 bg-opacity-40' : ''}`}
+                                to="/dashboard/manage-product"><FontAwesomeIcon icon={faFilePen} /> Manage Product
                             </Link>
                         </li>
-                        
+
 
                     </ul>
 

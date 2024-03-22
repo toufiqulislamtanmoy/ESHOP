@@ -34,7 +34,7 @@ const Navbar = () => {
 
                         <li><Link className={`hover:text-info hover:transition-colors hover:duration-500 z-20 ${location.pathname === '/newspaper' ? 'text-info' : ''}`} to="/contact-us">Contact Us</Link></li>
 
-                        {(role.role === 'admin' && user) && <li><Link to="/dashboard/requestforbook" className={`hover:text-info hover:transition-colors hover:duration-500 ${location.pathname === '/mystery' ? 'text-info' : ''}`}>Admin Panel</Link></li>}
+                        {(role.role === 'admin' && user) && <li><Link to="/dashboard/add-product" className={`hover:text-info hover:transition-colors hover:duration-500 ${location.pathname === '/mystery' ? 'text-info' : ''}`}>Admin Panel</Link></li>}
                     </ul>
                 </div>
                 <Link to="/" className="text-primary font-semibold tracking-widest text-2xl uppercase sm:text-3xl">
@@ -51,7 +51,7 @@ const Navbar = () => {
 
                     <li><Link className={`hover:text-info hover:transition-colors hover:duration-500 z-20 ${location.pathname === '/contact-us' ? 'text-info' : ''}`} to="/contact-us">Contact Us</Link></li>
 
-                    {(role.role === 'admin' && user) && <li><Link to="/dashboard/requestforbook" className={`hover:text-info hover:transition-colors hover:duration-500 ${location.pathname === '/mystery' ? 'text-info' : ''}`}>Admin Panel</Link></li>}
+                    {(role.role === 'admin' && user) && <li><Link to="/dashboard/add-product" className={`hover:text-info hover:transition-colors hover:duration-500 ${location.pathname === '/mystery' ? 'text-info' : ''}`}>Admin Panel</Link></li>}
                 </ul>
             </div>
             <div className="navbar-end">
