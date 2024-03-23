@@ -38,7 +38,7 @@ const MyCart = () => {
         })
     }
     return (
-        <div className="text-center">
+        <div className="text-centner">
             <div className="bg-gray-250 shadow-md max-w-6xl bg-white  mx-auto p-8 my-20 space-y-6">
                 {/* top part  */}
                 <Heading title="My Cart Items" subtitle={"Explore Our Products"} />
