@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { AuthContext } from "../../Provider/AuthProviders";
 import { BallTriangle } from "react-loader-spinner";
 import Heading from "../../../Components/Shared/Heading";
+import { TbCurrencyTaka } from "react-icons/tb";
 
 const PaymentHistory = () => {
     const [purcheseItemInfo, setPurcheseItemInfo] = useState([]);
@@ -18,10 +19,10 @@ const PaymentHistory = () => {
 
 
     return (
-        <div className={`flex items-center justify-center mt-28`}>
-            <div>
+        <div className="bg-gray-250 shadow-md max-w-7xl bg-white  mx-auto p-8 my-20 space-y-6">
+            <div >
                 <Heading title="My Purchase Items" subtitle={"Explore Our Products"} />
-                <div className="bg-gray-250 shadow-md max-w-7xl bg-white md:w-[700px] p-8 my-20 space-y-6">
+                <div className="bg-gray-250 shadow-md max-w-7xl bg-white  p-8 my-20 space-y-6">
                     {/* top part  */}
                     <div className="flex justify-between items-center">
                         <h4 className="text-xl font-medium text-slate-800 uppercase">Product</h4>
@@ -46,7 +47,10 @@ const PaymentHistory = () => {
                                     {/* item increase decrees  */}
                                     <div className="flex flex-wrap items-center gap-4 md:gap-10">
 
-                                        <h6 className="text-xl font-medium text-slate-800">{item?.product_price}</h6>
+                                        <h6 className="text-xl flex items-center font-medium text-slate-800">
+                                            {item?.product_price}
+                                            <TbCurrencyTaka />
+                                        </h6>
                                     </div>
                                 </div>
                             )) :

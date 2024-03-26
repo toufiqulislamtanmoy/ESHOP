@@ -7,20 +7,16 @@ import Login from "../Pages/Authentication/Login";
 import Signup from "../Pages/Authentication/Signup";
 import PrivetRoute from "./PrivetRoute";
 import Dashboard from "../Layout/Dashboard";
-import CollectBooks from "../Pages/AdminPanel/CollectBook/CollectBooks";
-
-
 import UserDashboard from "../Layout/UserDashboard";
 import MyCart from "../Pages/UserPanel/MyCart/MyCart";
 import Payment from "../Pages/UserPanel/Payments/Payment";
 import PaymentHistory from "../Pages/UserPanel/PaymentHistory/PaymentHistory";
-import MyFile from "../Pages/UserPanel/MyFile/MyFile";
 import NotFound from "../Pages/NotFound/NotFound";
-import AllBookList from "../Pages/AdminPanel/UpdateBooks/AllBookList";
-import UpdateBooks from "../Pages/AdminPanel/UpdateBooks/UpdateBooks";
 import Products from "../Pages/Products/Products";
 import ProductDetails from "../Pages/BookDetails/ProductDetails";
 import AddProduct from "../Pages/AdminPanel/AddProduct/AddProduct";
+import AllProductList from "../Pages/AdminPanel/UpdateProducts/AllProductList";
+import UpdateProduct from "../Pages/AdminPanel/UpdateProducts/UpdateProduct";
 
 
 const router = createBrowserRouter([
@@ -55,7 +51,7 @@ const router = createBrowserRouter([
     {
         path: "/dashboard",
         element: <PrivetRoute><Dashboard /></PrivetRoute>,
-        errorElement: <NotFound />,
+        // errorElement: <NotFound />,
         children: [
             {
                 path: "add-product",
@@ -63,15 +59,12 @@ const router = createBrowserRouter([
             },
             {
                 path: "update-product/:id",
-                element: <UpdateBooks />
+                element: <UpdateProduct />
             },
-            {
-                path: "collectbook",
-                element: <CollectBooks />
-            },
+
             {
                 path: "manage-product",
-                element: <AllBookList />
+                element: <AllProductList />
             },
 
 
@@ -81,7 +74,7 @@ const router = createBrowserRouter([
     {
         path: "/userdashboard",
         element: <PrivetRoute><UserDashboard /></PrivetRoute>,
-        errorElement: <NotFound />,
+        // errorElement: <NotFound />,
         children: [
             {
                 path: "userCart",
@@ -96,10 +89,7 @@ const router = createBrowserRouter([
                 path: "purchaseHistory",
                 element: <PaymentHistory />
             },
-            {
-                path: "myfile",
-                element: <MyFile />
-            },
+
 
         ]
 

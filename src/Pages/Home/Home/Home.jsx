@@ -15,7 +15,7 @@ const Home = () => {
             <Category2 />
             <Services />
             <MiddleBanner />
-            <Products />
+            <Products maney={10} />
             <Partners />
         </div>
     );

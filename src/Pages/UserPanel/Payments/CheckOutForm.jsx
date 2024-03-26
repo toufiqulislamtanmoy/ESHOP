@@ -5,9 +5,8 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { AuthContext } from "../../Provider/AuthProviders";
-import SectionTitle from "../../../Components/Shared/SectionTitle/SectionTitle";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
+import { TbCurrencyTaka } from "react-icons/tb";
+import Heading from "../../../Components/Shared/Heading";
 
 const CheckOutForm = ({ checkOutDetail }) => {
     const stripe = useStripe();
@@ -118,31 +117,41 @@ const CheckOutForm = ({ checkOutDetail }) => {
 
     }
     return (
-        <div className="flex flex-col items-center bg-slate-200  rounded-md bg-clip-padding backdrop-filter  bg-opacity-70 text-[#fff] h-[100vh]">
-            <SectionTitle title={"Make Payment"} />
-            <div className="w-full lg:w-1/2 mx-auto my-24 border-2 rounded-md shadow-md shadow-gray-800 bg-base-100 border-black p-10 ">
-                <form onSubmit={handleSubmit}>
-                    <CardElement
-                        options={{
-                            style: {
-                                base: {
-                                    fontSize: '16px',
-                                    color: '#000',
-                                    '::placeholder': {
+        <div className="mt-10">
+            <Heading title="Make Payment" subtitle={"Fully secure payment integration"} />
+            <div className="max-w-4xl h-[320px]  mx-auto bg-gradient-to-r from-red-100 to-yellow-50  rounded-xl p-8 shadow-lg transform  transition-transform duration-300 ">
+                <div className="">
+                    <div className="space-y-2">
+                        <h1><span>Pay For: </span> {product_name}</h1>
+                        <h1><span>Payable Amount: </span> {product_price} TK</h1>
+                    </div>
+                    <form onSubmit={handleSubmit} className="mt-10">
+                        <CardElement
+                            options={{
+                                style: {
+                                    base: {
+                                        fontSize: '16px',
                                         color: '#000',
+                                        '::placeholder': {
+                                            color: '#000',
+                                        },
+                                    },
+                                    invalid: {
+                                        color: '#c6dcf9',
                                     },
                                 },
-                                invalid: {
-                                    color: '#c6dcf9',
-                                },
-                            },
-                        }}
-                    />
-                    <button className="btn bg-info rounded-md hover:bg-success hover:transition-colors hover:duration-1000 capitalize hover:text-white my-5" type="submit" disabled={!stripe || !clintSecret || processing}>
-                        Pay Now <FontAwesomeIcon icon={faDollarSign} />
-                    </button>
-                </form>
-                {errorMsg && <p className='text-red-500 w-2/3 mx-auto'>{errorMsg}</p>}
+                            }}
+                        />
+                        <button className="bg-gradient-to-tr from-slate-300 to-orange-300 mt-5 rounded-[7px] transition-all duration-500 hover:bg-gradient-to-tl hover:from-cyan-200 hover:to-green-300 px-5 py-2 text-blue-950 font-Poppins font-semibold"
+                            type="submit" disabled={!stripe || !clintSecret || processing}>
+                            <span className=" flex items-center ">
+                                Pay now
+                                <TbCurrencyTaka className="font-semibold" />
+                            </span>
+                        </button>
+                    </form>
+                    {errorMsg && <p className='text-red-500 w-2/3 mx-auto'>{errorMsg}</p>}
+                </div>
 
             </div>
         </div>

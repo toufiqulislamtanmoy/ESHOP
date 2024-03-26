@@ -1,27 +1,51 @@
 
+import { useEffect, useState } from "react";
 import Card from "../../Components/Card/Card";
 import Heading from "../../Components/Shared/Heading";
 import useAllProducts from "../../Hooks/useAllProducts";
 
 
-const Products = () => {
+const Products = ({ maney }) => {
     const [products] = useAllProducts();
-    console.log(products);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [filteredProducts, setFilteredProducts] = useState([]);
+
+    useEffect(() => {
+        setFilteredProducts(products);
+    }, [products]);
+
+    const handleSearch = (event) => {
+        const term = event.target.value.toLowerCase();
+        setSearchTerm(term);
+
+        const filtered = products.filter((product) =>
+            product?.product_name.toLowerCase().includes(term)
+        );
+
+        setFilteredProducts(filtered);
+    };
     return (
         <>
 
             <div className="text-center p-10">
                 <Heading title="Our Products" subtitle={"Explore Our Products"} />
+                <input
+                    className="h-12 px-5 rounded-[7px] w-full lg:w-1/2 focus:outline-none bg-gray-200"
+                    type="text" placeholder="Search Products..."
+                    value={searchTerm}
+                    onChange={handleSearch}
+                />
             </div>
             {/* ✅ Grid Section - Starts Here 👇 */}
             <section
                 id="Products"
                 className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5"
             >
-                {
-                    products?.map((product, index) =>
+                {filteredProducts?.length > 0 ?
+                    filteredProducts?.slice(0, maney).map((product, index) =>
                         <Card key={index} productData={product} />
-                    )
+                    ) :
+                    <div className='text-center w-full'>No Product Found</div>
                 }
 
             </section>

@@ -6,7 +6,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { BallTriangle } from "react-loader-spinner";
 import Heading from "../../../Components/Shared/Heading";
-
+import { TbCurrencyTaka } from "react-icons/tb";
 const MyCart = () => {
     const { cartItem, cartRefetch } = useMyCartitem();
     console.log(cartItem)
@@ -39,7 +39,7 @@ const MyCart = () => {
     }
     return (
         <div className="text-centner">
-            <div className="bg-gray-250 shadow-md max-w-6xl bg-white  mx-auto p-8 my-20 space-y-6">
+            <div className="bg-gray-250 shadow-md max-w-7xl bg-white  mx-auto p-8 my-20 space-y-6">
                 {/* top part  */}
                 <Heading title="My Cart Items" subtitle={"Explore Our Products"} />
                 <div className="flex justify-between items-center">
@@ -61,7 +61,10 @@ const MyCart = () => {
                                 </div>
                                 {/* item increase decrees  */}
                                 <div className="flex flex-wrap items-center gap-4 md:gap-10">
-                                    <h6 className="text-xl font-medium text-slate-800">{item?.product_price}</h6>
+                                    <h6 className="text-xl font-medium text-slate-800 flex items-center">
+                                        {item?.product_price}
+                                        <TbCurrencyTaka />
+                                    </h6>
                                     <button onClick={() => handelDeleteCartItem(item?._id)}>Delete</button>
                                     <Link to={`/userdashboard/checkout/${item?._id}`} className="btn btn-xs rounded-md bg-secondary hover:bg-info  hover:transition-colors hover:duration-1000 capitalize text-white"><FontAwesomeIcon icon={faCreditCard} /></Link>
                                 </div>
