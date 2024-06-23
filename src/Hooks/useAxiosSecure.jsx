@@ -5,7 +5,7 @@ import { AuthContext } from '../Pages/Provider/AuthProviders';
 
 
 const axiosSecure = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: 'https://myshop-omega-neon.vercel.app',
 });
 
 

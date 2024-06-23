@@ -14,20 +14,30 @@ import PaymentHistory from "../Pages/UserPanel/PaymentHistory/PaymentHistory";
 import NotFound from "../Pages/NotFound/NotFound";
 import Products from "../Pages/Products/Products";
 import ProductDetails from "../Pages/BookDetails/ProductDetails";
+import AboutUs from "../Pages/AboutUs/AboutUs";
 import AddProduct from "../Pages/AdminPanel/AddProduct/AddProduct";
 import AllProductList from "../Pages/AdminPanel/UpdateProducts/AllProductList";
 import UpdateProduct from "../Pages/AdminPanel/UpdateProducts/UpdateProduct";
+import ContactUs from "../Pages/ContactUs/ContactUs";
 
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main />,
-        // errorElement: <NotFound />,
+        errorElement: <NotFound />,
         children: [
             {
                 path: "/",
                 element: <Home />
+            },
+            {
+                path: "/contact-us",
+                element: <ContactUs />
+            },
+            {
+                path: "/about",
+                element: <AboutUs />
             },
             {
                 path: "/shop",

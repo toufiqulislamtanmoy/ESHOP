@@ -10,7 +10,7 @@ const useUserRole = () => {
     queryKey: ["role"],
     enabled: !loading && user != null,
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/role/${user.email}`);
+      const res = await fetch(`https://myshop-omega-neon.vercel.app/role/${user.email}`);
       return res.json();
     },
     onSuccess: (data) => {

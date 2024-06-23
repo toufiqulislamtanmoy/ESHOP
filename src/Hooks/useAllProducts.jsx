@@ -7,7 +7,7 @@ const useAllProducts = () => {
     const { data: products = [], isLoading: loading, refetch } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
-            // const res = await fetch('http://localhost:5000/allproducts');
+            // const res = await fetch('https://myshop-omega-neon.vercel.app/allproducts');
             // return res.json();
             const response = await axiosSecure(`/products`)
             return response.data;

@@ -6,7 +6,7 @@ const useAllBorrowRequestBook = () => {
     const { data: borrowBooks = [], isLoading: loading, refetch } = useQuery({
         queryKey: ['allborrowRequest'],
         queryFn: async () => {
-            // const res = await fetch('http://localhost:5000/allborrowRequest');
+            // const res = await fetch('https://myshop-omega-neon.vercel.app/allborrowRequest');
             // return res.json();
 
             const response = await axiosSecure(`/allborrowRequest`)
