@@ -1,4 +1,4 @@
-# E-Shopy Project Documentation
+# ESHOP Project Documentation
 
 ## Table of Contents
 
